@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
   "task_type": "Проставить лайки",
-  "target_type": "По артикулу",
-  "target_value": "11127342\n111864727\n5024530\n9390267\n38415567\n3912338",
+  "target_type": "По магазину",
+  "target_value": "586414",
   "amount": 100,
   "days": 0,
   "hours": 0,

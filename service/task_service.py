@@ -86,8 +86,10 @@ def get_articles(target_type: str, target_value: str) -> list[tuple[str, str, st
             name, src = wb_service.get_name_and_img_by_article(article)
             result.append((article, name, src))
         return result
-    else:
-        return []
+    elif target_type == task_target.brand:
+        return wb_service.get_name_and_img_by_brand(target_value)
+    elif target_type == task_target.shop:
+        return wb_service.get_name_and_img_by_shop(target_value)
 
 
 def calculate_endtime(interval_in_ms: int, amount_of_articles: int, ) -> datetime:
