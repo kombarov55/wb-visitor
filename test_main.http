@@ -14,3 +14,7 @@ Content-Type: application/json
 
 ###
 GET localhost:8000/task_group?offset=0&limit=10
+
+
+###
+GET localhost:8000/task_group/short?offset=0&limit=10

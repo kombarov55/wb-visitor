@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy import Column, Integer, String, DateTime
 
 from config import database
+from model.task import TaskRs
 
 
 class TaskGroupVO(database.base):
@@ -12,13 +13,16 @@ class TaskGroupVO(database.base):
     id = Column(Integer, primary_key=True, index=True)
     task_type = Column(String)
     target_type = Column(String)
+    target_value = Column(String)
     amount = Column(Integer)
+    max_amount = Column(Integer)
     days = Column(Integer)
     hours = Column(Integer)
     minutes = Column(Integer)
     seconds = Column(Integer)
     interval = Column(Integer)
     status = Column(String)
+    start_datetime = Column(DateTime)
     end_datetime = Column(DateTime)
 
 
@@ -37,4 +41,15 @@ class TaskGroupRs(TaskGroupRq):
     id: int
     current_amount: int
     status: str
+    start_datetime: datetime | None = None
     end_datetime: datetime | None = None
+    max_amount: int | None = None
+    tasks: list[TaskRs] | None = None
+
+
+class TaskGroupShortRs(BaseModel):
+    id: int
+    task_type: str
+    current_amount: int
+    max_amount: int | None = None
+    status: str

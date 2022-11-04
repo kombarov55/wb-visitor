@@ -1,7 +1,11 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-browser = webdriver.Chrome(r"C:\Users\komba\Documents\chromedriver.exe")
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')  # Last I checked this was necessary.
+browser = webdriver.Chrome(r"C:\Users\komba\Documents\chromedriver.exe", options=options)
 browser.implicitly_wait(5000)
 
 def get_name_and_img_by_article(article: str) -> (str, str):
