@@ -68,6 +68,7 @@ def find_task_group_by_id(session: Session, task_group_id: int) -> TaskGroupRs:
         task_status=vo.status,
         start_datetime=vo.start_datetime,
         end_datetime=vo.end_datetime,
+        task_count=vo.task_count,
         tasks=list(map(lambda v: TaskRs(
             id=v.id,
             article=v.article,

@@ -16,6 +16,7 @@ class TaskGroupVO(database.base):
     target_value = Column(String)
     amount = Column(Integer)
     max_amount = Column(Integer)
+    task_count = Column(Integer)
     days = Column(Integer)
     hours = Column(Integer)
     minutes = Column(Integer)
@@ -45,6 +46,7 @@ class TaskGroupRs(TaskGroupRq):
     end_datetime: datetime | None = None
     max_amount: int | None = None
     tasks: list[TaskRs] | None = None
+    task_count: int | None = None
 
 
 class TaskGroupShortRs(BaseModel):

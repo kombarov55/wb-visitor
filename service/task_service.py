@@ -75,7 +75,8 @@ def add_tasks(rq: TaskGroupRq, task_group_id: int, session: Session):
         session.add(task_vo)
     task_group_vo = session.query(TaskGroupVO).filter(TaskGroupVO.id == task_group_id).first()
     task_group_vo.status = task_group_status.running
-    task_group_vo.max_amount = len(xs)
+    task_group_vo.max_amount = len(xs) * task_group_vo.amount
+    task_group_vo.task_count = len(xs)
     session.commit()
 
 
